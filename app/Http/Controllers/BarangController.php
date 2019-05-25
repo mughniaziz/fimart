@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Barang;
+use App\Kategori;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -25,6 +26,10 @@ class BarangController extends Controller
     public function create()
     {
         //
+        $kat = Kategori::all();
+        $dkat = json_decode($kat);
+        // dd($dkat);
+        return view('admin.tbarang',compact('dkat'));
     }
 
     /**
@@ -36,6 +41,15 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         //
+        $barangs = new Barang();
+        $barangs->kd_brg = $request->kd_brg;
+        $barangs->nama_kategori = $request->kategori;
+        $barangs->nama_brg = $request->nama_brg;
+        $barangs->stok = $request->stok;
+        $barangs->harga = $request->harga;
+        $barangs->save();
+
+        return redirect()->route('showbrg');
     }
 
     /**
@@ -81,5 +95,11 @@ class BarangController extends Controller
     public function destroy(Barang $barang)
     {
         //
+    }
+
+    public function showBrg()
+    {
+        $barang = Barang::all();
+        return view('admin.lbarang',compact('barang'));
     }
 }

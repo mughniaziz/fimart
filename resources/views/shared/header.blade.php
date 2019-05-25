@@ -13,7 +13,7 @@
                 <a href="{{route('kategori.create')}}" class="nav-link">Tambah Kategori</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Tambah Barang</a>
+                <a href="{{route('barang.create')}}" class="nav-link">Tambah Barang</a>
             </li>
         @endif
         <li class="nav-item dropdown">

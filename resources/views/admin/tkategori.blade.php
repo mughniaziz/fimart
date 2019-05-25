@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
             <div class="col">
-                <label for="Kode kategori" class="form-control-label">Kode kategori</label>
+                <label for="Kode kategori" class="control-form-label">Kode kategori</label>
             </div>
             <div class="col">
                 <input type="text" name="kd_kategori" id="kd_kategori" class="form-control">
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <div class="col">
-                <label for="Nama kategori" class="form-control-label">Nama kategori</label>
+                <label for="Nama kategori" class="control-form-label">Nama kategori</label>
             </div>
             <div class="col">
                 <input type="text" name="nama_kategori" id="nama_kategori" class="form-control">
