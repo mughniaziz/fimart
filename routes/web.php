@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('shared.index');
 });
 
+Route::resource('kasir','KasirController');
 Route::resource('admin','AdminController');
 Route::resource('kategori','KategoriController');
 Route::get('showkat','KategoriController@showKat')->name('showkat');
