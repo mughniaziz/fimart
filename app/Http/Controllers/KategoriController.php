@@ -25,6 +25,7 @@ class KategoriController extends Controller
     public function create()
     {
         //
+        return view('admin.tkategori');
     }
 
     /**
@@ -36,6 +37,12 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         //
+        $kategori = new Kategori;
+        $kategori->kd_kategori = $request->kd_kategori;
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->save();
+
+        return redirect()->route('showkat');
     }
 
     /**
@@ -78,8 +85,16 @@ class KategoriController extends Controller
      * @param  \App\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kategori $kategori)
+    public function destroy($id)
     {
         //
+        Kategori::destroy($id);
+        return redirect()->route('showkat');
+    }
+
+    public function showKat()
+    {
+        $kat = Kategori::all();
+        return view('admin.lkategori',compact('kat'));
     }
 }

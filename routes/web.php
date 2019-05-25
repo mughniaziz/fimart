@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::resource('admin','AdminController');
+Route::resource('kategori','KategoriController');
+Route::get('showkat','KategoriController@showKat')->name('showkat');
+Route::resource('barang','BarangController');
 
 Auth::routes();
 

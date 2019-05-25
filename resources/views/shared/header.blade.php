@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="#" class="navbar-brand">FIMart</a>
+            <a href="{{url('/')}}" class="navbar-brand">FIMart</a>
         </li>
         @guest
         <li class="nav-item">
@@ -10,7 +10,7 @@
         @else
         @if (Auth::user()->hasRole('admin'))
             <li class="nav-item">
-                <a href="#" class="nav-link">Tambah Kategori</a>
+                <a href="{{route('kategori.create')}}" class="nav-link">Tambah Kategori</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Tambah Barang</a>
