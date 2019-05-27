@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('kasir','KasirController');
+Route::resource('jual','PenjualanController');
+Route::resource('cart','KeranjangController');
 Route::resource('admin','AdminController');
 Route::resource('kategori','KategoriController');
 Route::get('showkat','KategoriController@showKat')->name('showkat');

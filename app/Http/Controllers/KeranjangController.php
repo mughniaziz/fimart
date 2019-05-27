@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Penjualan;
-use App\Barang;
+use App\Keranjang;
 use Illuminate\Http\Request;
 
-class PenjualanController extends Controller
+class KeranjangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,8 +25,6 @@ class PenjualanController extends Controller
     public function create()
     {
         //
-        $barang = Barang::all();
-        return view('kasir.jual',compact('barang'));
     }
 
     /**
@@ -39,18 +36,25 @@ class PenjualanController extends Controller
     public function store(Request $request)
     {
         //
-        $sell = new Penjualan();
-        $sell->no_faktur = $request->no_faktur;
-        $sel->kd_brg = $request->kd_brg;
+        $cart = new Keranjang();
+        dd($request->all());
+        $cart->no_faktur = $request->no_faktur;
+        $cart->kd_brg = $request->kd_brg;
+        $cart->qty = $request->qty;
+        $cart->nama_brg = $request->nama_brg;
+        $cart->harga = $request->harga;
+        $cart->save();
+
+        return redirect()->route('jual.create');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Penjualan  $penjualan
+     * @param  \App\Keranjang  $keranjang
      * @return \Illuminate\Http\Response
      */
-    public function show(Penjualan $penjualan)
+    public function show(Keranjang $keranjang)
     {
         //
     }
@@ -58,10 +62,10 @@ class PenjualanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Penjualan  $penjualan
+     * @param  \App\Keranjang  $keranjang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penjualan $penjualan)
+    public function edit(Keranjang $keranjang)
     {
         //
     }
@@ -70,10 +74,10 @@ class PenjualanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Penjualan  $penjualan
+     * @param  \App\Keranjang  $keranjang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penjualan $penjualan)
+    public function update(Request $request, Keranjang $keranjang)
     {
         //
     }
@@ -81,10 +85,10 @@ class PenjualanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Penjualan  $penjualan
+     * @param  \App\Keranjang  $keranjang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penjualan $penjualan)
+    public function destroy(Keranjang $keranjang)
     {
         //
     }

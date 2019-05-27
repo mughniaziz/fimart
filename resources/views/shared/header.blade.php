@@ -16,6 +16,11 @@
                 <a href="{{route('barang.create')}}" class="nav-link">Tambah Barang</a>
             </li>
         @endif
+        @if (Auth::user()->hasRole('kasir'))
+            <li class="nav-item">
+                <a href="{{route('jual.create')}}" class="nav-link">Penjualan</a>
+            </li>
+        @endif
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} <span class="caret"></span>

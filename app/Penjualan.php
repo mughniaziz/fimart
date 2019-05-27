@@ -12,4 +12,9 @@ class Penjualan extends Model
     {
         return $this->belongsTo(Barang::class);
     }
+
+    public function keranjangs()
+    {
+        return $this->belongsToMany(Keranjang::class);
+    }
 }
