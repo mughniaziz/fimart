@@ -38,12 +38,11 @@
                         </select>
                     </div></td>
                     <td><div class="form-group col-md-6">
-                        <select class="form-control" name="nama_brg">
-                            <option selected>Nama Barang</option>
-                            @foreach ($barang as $barangs)
-                            <option value="{!! $barangs->nama_brg !!}">{!! $barangs->nama_brg !!}</option>
-                            @endforeach
-                        </select>
+                        @if ($barangs->kd_brg == 8993539106003)
+                            $barangs->nama_brg = 'Ron 88'
+                            $barangs->harga = 2500;
+                        @endif
+                        <input type="text" name="nama_brg" value="{!!$barqangs->nama_brg!!}"
                     </div></td>
                     <td></td>
                     <td class="d-flex">
